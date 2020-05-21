@@ -27,7 +27,7 @@ export const equipItem = (item) => {
 };
 
 export const createMob = (mob) => {
-  const { name, health, damage } = mob;
+  const { name, health, damage, position } = mob;
   return {
     type: "CREATE_MOB",
     payload: {
@@ -35,6 +35,7 @@ export const createMob = (mob) => {
       name,
       health,
       damage,
+      position
     },
   };
 };
@@ -43,7 +44,7 @@ export const rePosition = (target) => {
   const { oldposition, newposition, id } = target;
 
   return {
-    type: "CHANGE POSITION",
+    type: "CHANGE_POSITION",
     payload: {
       id,
       oldposition,

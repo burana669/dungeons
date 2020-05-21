@@ -1,4 +1,4 @@
-. {
+* {
   margin: 0;
   padding: 0;
 }
@@ -67,5 +67,49 @@
 }
 
 .equipment-leg-right {
+  grid-area: i;
+.playarea-container {
+  display: grid;
+  grid-template-areas:
+  "a b c"
+  "d e f"
+  "g h i";
+  height: 50vh;
+  width: 50vh;
+}
+
+.playarea-a1 {
+  grid-area: a;
+}
+
+.playarea-a2 {
+  grid-area: b;
+}
+
+.playarea-a3 {
+  grid-area: c;
+}
+
+.playarea-b1 {
+  grid-area: d ;
+}
+
+.playarea-b2 {
+  grid-area: e;
+}
+
+.playarea-b3 {
+  grid-area: f;
+}
+
+.playarea-c1 {
+  grid-area: g;
+}
+
+.playarea-c2 {
+  grid-area: h;
+}
+
+.playarea-c3 {
   grid-area: i;
 }
