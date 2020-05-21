@@ -1,11 +1,11 @@
-import uuid from "uuid";
+import { v4 as uuidv4 } from "uuid";
 
 export const createItem = (item) => {
   const { name, bonus, type } = item;
   return {
     type: "ADD_ITEM",
     payload: {
-      id: uuid(),
+      id: uuidv4(),
       name,
       bonus,
       type,
@@ -31,7 +31,7 @@ export const createMob = (mob) => {
   return {
     type: "CREATE_MOB",
     payload: {
-      id: uuid(),
+      id: uuidv4(),
       name,
       health,
       damage,
