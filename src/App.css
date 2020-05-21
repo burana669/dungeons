@@ -68,6 +68,7 @@
 
 .equipment-leg-right {
   grid-area: i;
+}
 .playarea-container {
   display: grid;
   grid-template-areas:

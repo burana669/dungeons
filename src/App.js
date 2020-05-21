@@ -2,7 +2,7 @@ import React from "react";
 import CharacterScreen from "./components/CharacterScreen";
 import "./App.css";
 
-import Playarea from "./components/Playarea"
+import PlayArea from "./components/PlayArea"
 import Creator from "./components/Creator"
 
 function App() {
@@ -12,7 +12,7 @@ function App() {
       <CharacterScreen />
     
     <Creator></Creator>  
-    <Playarea></Playarea>
+    <PlayArea></PlayArea>
     </div>
   );
 }
