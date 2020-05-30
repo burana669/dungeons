@@ -51,3 +51,27 @@ export const rePosition = (target) => {
     },
   };
 };
+
+export const startDrag = (target) => {
+  console.log("ACTION: Start dragging");
+  return {
+    type: "START_DRAG_ITEM",
+    paylod: target,
+  };
+};
+
+export const drag = (target) => {
+  console.log("ACTION: Continue dragging");
+  return {
+    type: "DRAG_ITEM",
+    paylod: target,
+  };
+};
+
+export const drop = (target) => {
+  console.log("ACTION: Drop item");
+  return {
+    type: "DROP_DRAG_ITEM",
+    paylod: target,
+  };
+};

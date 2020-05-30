@@ -1,6 +1,12 @@
-. {
-  margin: 0;
-  padding: 0;
+* {
+  margin: 0px;
+  padding: 0px;
+  border: 0px solid black;
+}
+
+.draggable {
+  color: red;
+  font-size: 50px;
 }
 
 .equipment-container {
@@ -14,7 +20,7 @@
   height: 70vh;
   width: 70vh;
   background-image: url(./layout/pictures/man.png);
-  background-position: -90px;
+  background-position: -95px;
   background-repeat: no-repeat;
   background-size: auto;
   background-clip: border-box;
@@ -23,24 +29,20 @@
 }
 
 .equipment-slot {
-  height: 10vh;
-  width: 10vh;
+  height: 100px;
+  width: 100px;
+  border: 5px black solid;
   text-align: center;
   font-size: 2rem;
-  font-weight: 600;
   color: white;
-  justify-items: center;
-  background-color: rgb(42, 42, 88);
-  border-width: 2px;
-  opacity: 0.5;
+  background-color: rgba(108, 108, 146, 0.5);
 }
 
 .equipment-slot:hover {
   transition: 250ms;
-  border: 10px black;
+  border: 5px dashed black;
   color: white;
   filter: brightness(1);
-  opacity: 1;
 }
 
 .equipment-head {
@@ -68,4 +70,42 @@
 
 .equipment-leg-right {
   grid-area: i;
+}
+
+.inventory-list {
+  width: 100%;
+  height: 100px;
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  background-color: #f4f4f4;
+}
+
+.inventory-slot {
+  margin: 0 10px;
+  width: 100px;
+  height: 100px;
+  background-color: darkcyan;
+}
+
+.inventory-item {
+  height: stretch;
+  width: stretch;
+  margin: 5px;
+  text-align: center;
+  justify-items: center;
+  color: black;
+  background-color: white;
+}
+
+.helmet {
+  background-image: url("./layout/pictures/helmet.jpg");
+  background-repeat: no-repeat;
+  background-size: 100px 100px;
+}
+
+.sword {
+  background-image: url("./layout/pictures/sword.png");
+  background-repeat: no-repeat;
+  background-size: 100px 100px;
 }
