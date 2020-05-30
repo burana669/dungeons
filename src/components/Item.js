@@ -2,7 +2,6 @@ import React from "react";
 import { startDrag, drag, drop } from "../actions";
 
 const Item = (props) => {
-  console.log(props);
   const dragStart = (e) => {
     const target = e.target;
     console.log(e);
@@ -16,6 +15,11 @@ const Item = (props) => {
 
   const drag = () => {};
 
+  const dragEnd = (e) => {
+    console.log(e.target);
+    e.target.style.display = "block";
+  };
+
   const dragOver = (e) => {
     e.stopPropagation();
   };
@@ -27,6 +31,7 @@ const Item = (props) => {
         id={props.id}
         onDragStart={dragStart}
         onDrop={drop}
+        onDragEnd={dragEnd}
         onDragOver={dragOver}
         draggable={props.draggable}
       >

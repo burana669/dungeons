@@ -10,7 +10,6 @@ const CharacterSlot = (props) => {
     console.log(item);
 
     charSlot.appendChild(item);
-    item.style.display = "block";
   };
 
   const dragOver = (e) => {
