@@ -10,27 +10,27 @@ const Playarea = (props) => {
 
     const areaPositions = props.positions.map((element) => {
         switch (element.position) {
-            case "a1":
+            case 11:
         return <div className="playarea-a1">{element.name}</div>
-            case "a2":
+            case 12:
         return <div className="playarea-a2">{element.name}</div>
-            case "a3":
+            case 13:
         return <div className="playarea-a3">{element.name}</div>
-            case "b1":
+            case 21:
         return <div className="playarea-b1">{element.name}</div>
-            case "b2":
+            case 22:
         return <div className="playarea-b2">{element.name}</div>
-            case "b3":
+            case 23:
         return <div className="playarea-b3">{element.name}</div>
-            case "c1":
+            case 31:
         return <div className="playarea-c1">{element.name}</div>
-            case "c2":
+            case 32:
         return <div className="playarea-c2">{element.name}</div>
-            case "c3":
+            case 33:
         return <div className="playarea-c3">{element.name}</div>
         
        default:
-           return null 
+           return null
     }
         
 

@@ -40,15 +40,29 @@ export const createMob = (mob) => {
   };
 };
 
-export const rePosition = (target) => {
-  const { oldposition, newposition, id } = target;
-
+export const rePosition = (newPosition, id) => {
+  
   return {
     type: "CHANGE_POSITION",
     payload: {
       id,
-      oldposition,
-      newposition,
+      newPosition,
     },
   };
 };
+
+export const createPlayer = (player) => {
+  const {name, health, damage, position} = player
+
+  return {
+    type: "CREATE_PLAYER",
+    payload: {
+      id: "player",
+      name,
+      health,
+      damage,
+      position
+    }
+  }
+
+}
