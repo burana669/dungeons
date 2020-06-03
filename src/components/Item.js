@@ -1,11 +1,16 @@
-import React from "react";
+import React, { useState } from "react";
+import { v4 as uuidv4 } from "uuid";
 import { startDrag, drag, drop } from "../actions";
 
 const Item = (props) => {
+  const { id, name, gategory, description, draggable, image } = props;
+
+  const [xAxis, setXAxis] = useState();
+  const [yAxis, setYAxis] = useState();
+  const [showDescription, setShowDescription] = useState("none");
+
   const dragStart = (e) => {
     const target = e.target;
-    console.log(e);
-    console.log(target);
 
     e.dataTransfer.setData("item", target.id);
     setTimeout(() => {
@@ -16,7 +21,6 @@ const Item = (props) => {
   const drag = () => {};
 
   const dragEnd = (e) => {
-    console.log(e.target);
     e.target.style.display = "block";
   };
 
@@ -24,20 +28,42 @@ const Item = (props) => {
     e.stopPropagation();
   };
 
+  const mouseEnter = (e) => {
+    setShowDescription("block");
+  };
+
+  const mouseMove = (e) => {
+    console.log(e.clientX + e.clientY);
+  };
+
+  const mouseLeave = (e) => {
+    setShowDescription("none");
+  };
+
   return (
-    <li className="inventory-slot" key={props.key}>
+    <div
+      className={`inventory-item ${image}`}
+      id={id}
+      onDragStart={dragStart}
+      onDrop={drop}
+      onDragEnd={dragEnd}
+      onDragOver={dragOver}
+      onMouseEnter={mouseEnter}
+      //onMouseMove={mouseMove}
+      onMouseLeave={mouseLeave}
+      draggable={draggable}
+    >
+      {name}
       <div
-        className={`inventory-item ${props.image}`}
-        id={props.id}
-        onDragStart={dragStart}
-        onDrop={drop}
-        onDragEnd={dragEnd}
-        onDragOver={dragOver}
-        draggable={props.draggable}
+        className="item-description"
+        style={{
+          display: showDescription,
+          position: "absolute",
+        }}
       >
-        {props.name}
+        {description}
       </div>
-    </li>
+    </div>
   );
 };
 

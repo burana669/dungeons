@@ -1,6 +1,8 @@
 import React from "react";
+import { v4 as uuidv4 } from "uuid";
 
-const CharacterSlot = (props) => {
+const Slot = ({ id = uuidv4(), className = null, children = null, props }) => {
+  console.log(props);
   const drop = (e) => {
     e.preventDefault();
     const charSlot = document.getElementById(e.target.id);
@@ -14,15 +16,10 @@ const CharacterSlot = (props) => {
   };
 
   return (
-    <div
-      id={props.id}
-      className={props.className}
-      onDrop={drop}
-      onDragOver={dragOver}
-    >
-      {props.children}
+    <div id={id} className="equipment-slot" onDrop={drop} onDragOver={dragOver}>
+      {children}
     </div>
   );
 };
 
-export default CharacterSlot;
+export default Slot;

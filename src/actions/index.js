@@ -52,26 +52,26 @@ export const rePosition = (target) => {
   };
 };
 
-export const startDrag = (target) => {
+export const startDrag = (event) => {
   console.log("ACTION: Start dragging");
   return {
     type: "START_DRAG_ITEM",
-    paylod: target,
+    paylod: event,
   };
 };
 
-export const drag = (target) => {
+export const drag = (event) => {
   console.log("ACTION: Continue dragging");
   return {
     type: "DRAG_ITEM",
-    paylod: target,
+    paylod: event,
   };
 };
 
-export const drop = (target) => {
+export const drop = (event) => {
   console.log("ACTION: Drop item");
   return {
     type: "DROP_DRAG_ITEM",
-    paylod: target,
+    paylod: event,
   };
 };
