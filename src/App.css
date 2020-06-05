@@ -4,6 +4,11 @@
   border: 0px solid black;
 }
 
+:root {
+  --primary-color: rgb(255, 255, 255);
+  --primary-background-color: rgb(16, 51, 104);
+}
+
 .draggable {
   color: red;
   font-size: 50px;
@@ -19,18 +24,19 @@
     "g h i";
   height: 70vh;
   width: 70vh;
+  background-color: darkmagenta;
   background-image: url(./layout/pictures/man.png);
-  background-position: -95px;
+  background-position: center;
   background-repeat: no-repeat;
-  background-size: auto;
+  background-size: contain;
   background-clip: border-box;
   cursor: pointer;
   user-select: none;
 }
 
 .equipment-slot {
-  height: 100px;
-  width: 100px;
+  height: 10vh;
+  width: 10vh;
   border: 5px black solid;
   text-align: center;
   font-size: 2rem;
@@ -39,7 +45,7 @@
 }
 
 .equipment-slot:hover {
-  transition: 250ms;
+  transition: 500ms;
   border: 5px dashed black;
   color: white;
   filter: brightness(1);
@@ -92,10 +98,26 @@
   height: stretch;
   width: stretch;
   margin: 5px;
+  font-size: 2rem;
   text-align: center;
   justify-items: center;
   color: black;
   background-color: white;
+}
+
+.item-description {
+  position: absolute;
+  width: 15vh;
+  height: 15vh;
+
+  top: 5vh;
+  left: 5vh;
+
+  font-size: 1rem;
+  font-style: italic;
+
+  background-color: var(--primary-background-color);
+  color: var(--primary-color);
 }
 
 .helmet {

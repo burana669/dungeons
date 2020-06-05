@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { connect, createDispatchHook } from "react-redux";
 import { equipItem } from "../actions";
-import CharacterSlot from "./CharacterSlot";
 import Slot from "./Slot";
 
 const CharacterScreen = ({ props }) => {

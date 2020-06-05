@@ -1,9 +1,12 @@
 import React, { useState } from "react";
+import ItemDetails from "./ItemDetails";
 import { v4 as uuidv4 } from "uuid";
 import { startDrag, drag, drop } from "../actions";
 
+var timeOut;
+
 const Item = (props) => {
-  const { id, name, gategory, description, draggable, image } = props;
+  const { id, name, gategory, description, draggable, image, stats } = props;
 
   const [xAxis, setXAxis] = useState();
   const [yAxis, setYAxis] = useState();
@@ -13,6 +16,7 @@ const Item = (props) => {
     const target = e.target;
 
     e.dataTransfer.setData("item", target.id);
+    setShowDescription("none");
     setTimeout(() => {
       target.style.display = "none";
     }, 0);
@@ -29,14 +33,20 @@ const Item = (props) => {
   };
 
   const mouseEnter = (e) => {
-    setShowDescription("block");
+    timeOut = setTimeout(() => {
+      setShowDescription("block");
+    }, 500);
   };
 
+  const mouseOver = (e) => {};
+
   const mouseMove = (e) => {
-    console.log(e.clientX + e.clientY);
+    setXAxis(e.clientX);
+    setYAxis(e.clientY);
   };
 
   const mouseLeave = (e) => {
+    clearTimeout(timeOut);
     setShowDescription("none");
   };
 
@@ -49,20 +59,18 @@ const Item = (props) => {
       onDragEnd={dragEnd}
       onDragOver={dragOver}
       onMouseEnter={mouseEnter}
-      //onMouseMove={mouseMove}
+      onMouseOver={mouseOver}
+      onMouseMove={mouseMove}
       onMouseLeave={mouseLeave}
       draggable={draggable}
     >
       {name}
-      <div
-        className="item-description"
-        style={{
-          display: showDescription,
-          position: "absolute",
-        }}
-      >
-        {description}
-      </div>
+      <ItemDetails
+        description={description}
+        stats={stats}
+        shown={showDescription}
+        coordinates={(xAxis, yAxis)}
+      />
     </div>
   );
 };
