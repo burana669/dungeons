@@ -1,6 +1,16 @@
 import React from "react";
 
 const ItemDetails = (props) => {
+  const renderStats = () => {
+    return Object.entries(props.stats).map(([key, value]) => (
+      <div className="stats">
+        <p>
+          {key} : {value}
+        </p>
+      </div>
+    ));
+  };
+
   return (
     <div
       className="item-description"
@@ -12,7 +22,8 @@ const ItemDetails = (props) => {
     >
       {props.description}
       <br></br>
-      {Object.keys(props.stats)}
+      <br></br>
+      {renderStats()}
     </div>
   );
 };

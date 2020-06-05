@@ -5,7 +5,6 @@ import InventoryScreen from "./components/InventoryScreen";
 import "./App.css";
 
 function App() {
-  console.log(window);
   return (
     <div className="App">
       <CharacterScreen />
