@@ -9,32 +9,39 @@ const Playarea = (props) => {
     
 
     const areaPositions = props.positions.map((element) => {
-        switch (element.position) {
-            case 11:
+        if (element.positionX === 1 && element.positionY === 1) {
+            
         return <div className="playarea-a1">{element.name}</div>
-            case 12:
+        }
+        else if (element.positionX === 2 && element.positionY === 1){
         return <div className="playarea-a2">{element.name}</div>
-            case 13:
+         }
+        else if (element.positionX === 3 && element.positionY === 1){
         return <div className="playarea-a3">{element.name}</div>
-            case 21:
+        }
+        else if (element.positionX === 1 && element.positionY === 2){
         return <div className="playarea-b1">{element.name}</div>
-            case 22:
+        }
+        else if (element.positionX === 2 && element.positionY === 2) {
         return <div className="playarea-b2">{element.name}</div>
-            case 23:
+        }
+        else if (element.positionX === 3 && element.positionY === 2){
         return <div className="playarea-b3">{element.name}</div>
-            case 31:
+        }
+        else if (element.positionX === 1 && element.positionY === 3){
         return <div className="playarea-c1">{element.name}</div>
-            case 32:
+        }
+        else if (element.positionX === 2 && element.positionY === 3){
         return <div className="playarea-c2">{element.name}</div>
-            case 33:
+        }
+        else if (element.positionX === 3 && element.positionY === 3){    
         return <div className="playarea-c3">{element.name}</div>
-        
-       default:
-           return null
+        }
+        else return null
     }
         
 
-    })
+    )
 
     
     return (

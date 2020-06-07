@@ -8,21 +8,24 @@ const newmob = {
     name: "mölli",
     damage: 4,
     health: 10,
-    position: 13
+    positionX: 3,
+    positionY: 1
 }
 
 const newmob2 = {
     name: "lisko",
     damage: 4,
     health: 10,
-    position: 31
+    positionX: 1,
+    positionY: 3
 }
 
 const player = {
     name: "MATTI",
     damage: 1,
     health: 100,
-    position: 32
+    positionX: 2,
+    positionY: 3
 }
 
 props.createMob(newmob)
