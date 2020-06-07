@@ -27,7 +27,7 @@ export const equipItem = (item) => {
 };
 
 export const createMob = (mob) => {
-  const { name, health, damage, position } = mob;
+  const { name, health, damage, positionX, positionY } = mob;
   return {
     type: "CREATE_MOB",
     payload: {
@@ -35,24 +35,36 @@ export const createMob = (mob) => {
       name,
       health,
       damage,
-      position
+      positionX,
+      positionY
     },
   };
 };
 
-export const rePosition = (newPosition, id) => {
+export const rePositionX = (newPositionX, id) => {
   
   return {
-    type: "CHANGE_POSITION",
+    type: "CHANGE_POSITIONX",
     payload: {
       id,
-      newPosition,
+      newPositionX,
     },
   };
 };
+export const rePositionY = (newPositionY, id) => {
+  
+  return  {
+    
+    type: "CHANGE_POSITIONY",
+    payload: {
+      id,
+      newPositionY
+    }
+  }
+}
 
 export const createPlayer = (player) => {
-  const {name, health, damage, position} = player
+  const {name, health, damage, positionX, positionY} = player
 
   return {
     type: "CREATE_PLAYER",
@@ -61,7 +73,8 @@ export const createPlayer = (player) => {
       name,
       health,
       damage,
-      position
+      positionX,
+      positionY
     }
   }
 
