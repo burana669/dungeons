@@ -14,6 +14,7 @@ const Item = (props) => {
 
   const dragStart = (e) => {
     const target = e.target;
+    e.stopPropagation();
 
     e.dataTransfer.setData("item", target.id);
     setShowDescription("none");
@@ -22,7 +23,9 @@ const Item = (props) => {
     }, 0);
   };
 
-  const drag = () => {};
+  const drag = (e) => {
+    e.stopPropagation();
+  };
 
   const dragEnd = (e) => {
     e.target.style.display = "block";
@@ -41,8 +44,11 @@ const Item = (props) => {
   const mouseOver = (e) => {};
 
   const mouseMove = (e) => {
-    setXAxis(e.clientX);
-    setYAxis(e.clientY);
+    const thisDiv = document.getElementById(`${id}`);
+    const coords = thisDiv.getBoundingClientRect();
+
+    setXAxis(e.clientX - coords.x + 20);
+    setYAxis(e.clientY - coords.y + 30);
   };
 
   const mouseLeave = (e) => {
@@ -56,6 +62,7 @@ const Item = (props) => {
       id={id}
       onDragStart={dragStart}
       onDrop={drop}
+      onDrag={drag}
       onDragEnd={dragEnd}
       onDragOver={dragOver}
       onMouseEnter={mouseEnter}
@@ -66,10 +73,11 @@ const Item = (props) => {
     >
       {name}
       <ItemDetails
+        id={id}
         description={description}
         stats={stats}
         shown={showDescription}
-        coordinates={(xAxis, yAxis)}
+        coordinates={{ xAxis, yAxis }}
       />
     </div>
   );

@@ -1,7 +1,6 @@
 import React from "react";
 import Item from "./Item";
 import Slot from "./Slot";
-import { startDrag, drag, drop } from "../actions";
 
 const InventoryScreen = (props) => {
   const mockUpData = [
@@ -74,19 +73,6 @@ const InventoryScreen = (props) => {
       },
     },
   ];
-
-  const drop = (e) => {
-    e.preventDefault();
-    const charSlot = document.getElementById(e.target.id);
-    const item = document.getElementById(e.dataTransfer.getData("item"));
-
-    charSlot.appendChild(item);
-    item.style.display = "block";
-  };
-
-  const dragOver = (e) => {
-    e.preventDefault();
-  };
 
   const renderInventoryItems = mockUpData.map((item) => (
     <Slot>

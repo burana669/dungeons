@@ -1,4 +1,7 @@
 import React from "react";
+import Item from "./Item";
+
+var timeOut;
 
 const ItemDetails = (props) => {
   const renderStats = () => {
@@ -11,18 +14,22 @@ const ItemDetails = (props) => {
     ));
   };
 
+  const x = 0;
+  const y = 0;
+
   return (
     <div
       className="item-description"
+      id={`description${props.id}`}
       style={{
         display: props.shown,
-        top: props.xAxis,
-        left: props.yAxis,
+        top: `${props.coordinates.yAxis}px`,
+        left: `${props.coordinates.xAxis}px`,
       }}
     >
       {props.description}
       <br></br>
-      <br></br>
+
       {renderStats()}
     </div>
   );

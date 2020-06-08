@@ -6,12 +6,7 @@
 
 :root {
   --primary-color: rgb(255, 255, 255);
-  --primary-background-color: rgb(16, 51, 104);
-}
-
-.draggable {
-  color: red;
-  font-size: 50px;
+  --primary-background-color: rgb(38, 55, 80);
 }
 
 .equipment-container {
@@ -107,11 +102,9 @@
 
 .item-description {
   position: absolute;
+
   width: 15vh;
   height: 15vh;
-
-  top: 5vh;
-  left: 5vh;
 
   font-size: 1rem;
   font-style: italic;
