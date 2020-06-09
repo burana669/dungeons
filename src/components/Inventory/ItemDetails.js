@@ -1,7 +1,4 @@
 import React from "react";
-import Item from "./Item";
-
-var timeOut;
 
 const ItemDetails = (props) => {
   const renderStats = () => {
@@ -13,9 +10,6 @@ const ItemDetails = (props) => {
       </div>
     ));
   };
-
-  const x = 0;
-  const y = 0;
 
   return (
     <div

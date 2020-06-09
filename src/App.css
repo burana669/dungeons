@@ -1,9 +1,8 @@
 * {
-  margin: 0;
-  padding: 0;
   margin: 0px;
   padding: 0px;
   border: 0px solid black;
+  user-select: none;
 }
 
 :root {
@@ -11,69 +10,142 @@
   --primary-background-color: rgb(38, 55, 80);
 }
 
-.equipment-container {
-  display: grid;
-  align-items: center;
+html {
+  height: 100vh;
+  width: 100vw;
+}
 
-  grid-template-areas:
-    "a b c"
-    "d e f"
-    "g h i";
-  height: 70vh;
-  width: 70vh;
-  background-color: darkmagenta;
+body {
+  overflow: hidden;
+}
+
+.inventory-container {
+  display: flex;
+  flex: 1;
+  flex-direction: row;
+
+  position: absolute;
+  top: 10%;
+  left: 10%;
+  z-index: 1;
+
+  min-height: 50vh;
+
+  background-color: rgb(211, 211, 211);
+}
+
+.equipment-container {
+  display: flex;
+  flex: 1;
+  margin: auto;
+
   background-image: url(./layout/pictures/man.png);
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
   background-clip: border-box;
+}
+
+.character-screen {
+  width: 100%;
+}
+
+.slot {
+  margin: 1vh;
+  border-radius: 10%;
+  height: 8vh;
+  width: 8vh;
+  border: 0px black solid;
+  background-color: rgba(128, 129, 146, 0.5);
   cursor: pointer;
-  user-select: none;
 }
 
-.equipment-slot {
-  height: 10vh;
-  width: 10vh;
-  border: 5px black solid;
-  text-align: center;
-  font-size: 2rem;
-  color: white;
-  background-color: rgba(108, 108, 146, 0.5);
+.slot:hover {
+  transition: 150ms;
+  background-color: rgba(211, 211, 211, 0.7);
 }
 
-.equipment-slot:hover {
-  transition: 500ms;
-  border: 5px dashed black;
-  color: white;
-  filter: brightness(1);
+.slot .equipment-slot {
 }
 
-.equipment-head {
-  grid-area: b;
-  align-self: flex-end;
+.slot .equipment-slot .equipment-head {
+  margin: auto;
 }
 
-.equipment-arm-left {
-  grid-area: a;
-  align-self: flex-end;
+.equipment-slot .equipment-arm-left {
 }
 
 .equipment-arm-right {
-  grid-area: c;
-  align-self: flex-end;
 }
 
 .equipment-torso {
-  grid-area: e;
 }
 
 .equipment-leg-left {
-  grid-area: g;
 }
 
 .equipment-leg-right {
-  grid-area: i;
 }
+
+.slot .inventory-slot {
+}
+
+.stash-container {
+  display: flex;
+  flex: 2;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  list-style: none;
+
+  background-image: url(../src/layout/pictures/stash.jpg);
+  filter: grayscale(50%);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-clip: border-box;
+}
+
+.inventory-item {
+  border-radius: 10%;
+
+  height: 8vh;
+  width: 8vh;
+
+  margin: 0;
+  padding: 0;
+
+  font-size: 1rem;
+  text-align: center;
+  justify-items: center;
+  color: black;
+  background-color: rgba(255, 255, 255, 0);
+}
+
+.item-description {
+  position: relative;
+
+  min-width: 15vh;
+  min-height: 15vh;
+
+  font-size: 1rem;
+  font-style: italic;
+
+  background-color: var(--primary-background-color);
+  color: var(--primary-color);
+}
+
+.helmet {
+  background-image: url("./layout/pictures/helmet.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.sword {
+  background-image: url("./layout/pictures/sword.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
 .playarea-container {
   display: grid;
   grid-template-areas:
@@ -118,56 +190,4 @@
 
 .playarea-c3 {
   grid-area: i;
-}
-
-.inventory-list {
-  width: 100%;
-  height: 100px;
-  display: flex;
-  flex-wrap: wrap;
-  list-style: none;
-  background-color: #f4f4f4;
-}
-
-.inventory-slot {
-  margin: 0 10px;
-  width: 100px;
-  height: 100px;
-  background-color: darkcyan;
-}
-
-.inventory-item {
-  height: stretch;
-  width: stretch;
-  margin: 5px;
-  font-size: 2rem;
-  text-align: center;
-  justify-items: center;
-  color: black;
-  background-color: white;
-}
-
-.item-description {
-  position: absolute;
-
-  width: 15vh;
-  height: 15vh;
-
-  font-size: 1rem;
-  font-style: italic;
-
-  background-color: var(--primary-background-color);
-  color: var(--primary-color);
-}
-
-.helmet {
-  background-image: url("./layout/pictures/helmet.jpg");
-  background-repeat: no-repeat;
-  background-size: 100px 100px;
-}
-
-.sword {
-  background-image: url("./layout/pictures/sword.png");
-  background-repeat: no-repeat;
-  background-size: 100px 100px;
 }

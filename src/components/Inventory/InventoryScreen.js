@@ -79,6 +79,7 @@ const InventoryScreen = (props) => {
       <Item
         key={item.id}
         id={item.id}
+        className="inventory-slot"
         name={item.name}
         gategory={item.gategory}
         description={item.description}
@@ -89,7 +90,7 @@ const InventoryScreen = (props) => {
     </Slot>
   ));
 
-  return <ul className="inventory-list">{renderInventoryItems}</ul>;
+  return <ul className="stash-container">{renderInventoryItems}</ul>;
 };
 
 export default InventoryScreen;
