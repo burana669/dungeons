@@ -36,13 +36,12 @@ export const createMob = (mob) => {
       health,
       damage,
       positionX,
-      positionY
+      positionY,
     },
   };
 };
 
 export const rePositionX = (newPositionX, id) => {
-  
   return {
     type: "CHANGE_POSITIONX",
     payload: {
@@ -52,19 +51,17 @@ export const rePositionX = (newPositionX, id) => {
   };
 };
 export const rePositionY = (newPositionY, id) => {
-  
-  return  {
-    
+  return {
     type: "CHANGE_POSITIONY",
     payload: {
       id,
-      newPositionY
-    }
-  }
-}
+      newPositionY,
+    },
+  };
+};
 
 export const createPlayer = (player) => {
-  const {name, health, damage, positionX, positionY} = player
+  const { name, health, damage, positionX, positionY } = player;
 
   return {
     type: "CREATE_PLAYER",
@@ -74,8 +71,31 @@ export const createPlayer = (player) => {
       health,
       damage,
       positionX,
-      positionY
-    }
-  }
+      positionY,
+    },
+  };
+};
 
-}
+export const startDrag = (event) => {
+  console.log("ACTION: Start dragging");
+  return {
+    type: "START_DRAG_ITEM",
+    paylod: event,
+  };
+};
+
+export const drag = (event) => {
+  console.log("ACTION: Continue dragging");
+  return {
+    type: "DRAG_ITEM",
+    paylod: event,
+  };
+};
+
+export const drop = (event) => {
+  console.log("ACTION: Drop item");
+  return {
+    type: "DROP_DRAG_ITEM",
+    paylod: event,
+  };
+};

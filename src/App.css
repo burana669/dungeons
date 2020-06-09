@@ -1,6 +1,14 @@
 * {
   margin: 0;
   padding: 0;
+  margin: 0px;
+  padding: 0px;
+  border: 0px solid black;
+}
+
+:root {
+  --primary-color: rgb(255, 255, 255);
+  --primary-background-color: rgb(38, 55, 80);
 }
 
 .equipment-container {
@@ -13,10 +21,11 @@
     "g h i";
   height: 70vh;
   width: 70vh;
+  background-color: darkmagenta;
   background-image: url(./layout/pictures/man.png);
-  background-position: -90px;
+  background-position: center;
   background-repeat: no-repeat;
-  background-size: auto;
+  background-size: contain;
   background-clip: border-box;
   cursor: pointer;
   user-select: none;
@@ -25,22 +34,18 @@
 .equipment-slot {
   height: 10vh;
   width: 10vh;
+  border: 5px black solid;
   text-align: center;
   font-size: 2rem;
-  font-weight: 600;
   color: white;
-  justify-items: center;
-  background-color: rgb(42, 42, 88);
-  border-width: 2px;
-  opacity: 0.5;
+  background-color: rgba(108, 108, 146, 0.5);
 }
 
 .equipment-slot:hover {
-  transition: 250ms;
-  border: 10px black;
+  transition: 500ms;
+  border: 5px dashed black;
   color: white;
   filter: brightness(1);
-  opacity: 1;
 }
 
 .equipment-head {
@@ -72,9 +77,9 @@
 .playarea-container {
   display: grid;
   grid-template-areas:
-  "a b c"
-  "d e f"
-  "g h i";
+    "a b c"
+    "d e f"
+    "g h i";
   height: 50vh;
   width: 50vh;
 }
@@ -92,7 +97,7 @@
 }
 
 .playarea-b1 {
-  grid-area: d ;
+  grid-area: d;
 }
 
 .playarea-b2 {
@@ -113,4 +118,56 @@
 
 .playarea-c3 {
   grid-area: i;
+}
+
+.inventory-list {
+  width: 100%;
+  height: 100px;
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  background-color: #f4f4f4;
+}
+
+.inventory-slot {
+  margin: 0 10px;
+  width: 100px;
+  height: 100px;
+  background-color: darkcyan;
+}
+
+.inventory-item {
+  height: stretch;
+  width: stretch;
+  margin: 5px;
+  font-size: 2rem;
+  text-align: center;
+  justify-items: center;
+  color: black;
+  background-color: white;
+}
+
+.item-description {
+  position: absolute;
+
+  width: 15vh;
+  height: 15vh;
+
+  font-size: 1rem;
+  font-style: italic;
+
+  background-color: var(--primary-background-color);
+  color: var(--primary-color);
+}
+
+.helmet {
+  background-image: url("./layout/pictures/helmet.jpg");
+  background-repeat: no-repeat;
+  background-size: 100px 100px;
+}
+
+.sword {
+  background-image: url("./layout/pictures/sword.png");
+  background-repeat: no-repeat;
+  background-size: 100px 100px;
 }

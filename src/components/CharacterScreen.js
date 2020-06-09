@@ -1,16 +1,17 @@
 import React, { useState } from "react";
-import { connect } from "react-redux";
+import { connect, createDispatchHook } from "react-redux";
 import { equipItem } from "../actions";
+import Slot from "./Slot";
 
-const CharacterScreen = (props) => {
+const CharacterScreen = ({ props }) => {
   return (
     <div className="equipment-container">
-      <div className="equipment-slot equipment-head">HEAD</div>
-      <div className="equipment-slot equipment-arm-left">LEFT ARM</div>
-      <div className="equipment-slot equipment-arm-right">RIGHT ARM</div>
-      <div className="equipment-slot equipment-torso">TORSO</div>
-      <div className="equipment-slot equipment-leg-left">LEFT LEG</div>
-      <div className="equipment-slot equipment-leg-right">RIGHT LEG</div>
+      <Slot id="inventory_head" className="equipment-slot equipment-head" />
+      <Slot id="left_arm" className="equipment-slot equipment-left-arm" />
+      <Slot id="right_arm" className="equipment-slot equipment-right-arm" />
+      <Slot id="torso" className="equipment-slot equipment-torso" />
+      <Slot id="left-leg" className="equipment-slot equipment-left-leg" />
+      <Slot id="right-leg" className="equipment-slot equipment-right-leg" />
     </div>
   );
 };
