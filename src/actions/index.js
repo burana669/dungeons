@@ -59,6 +59,16 @@ export const rePositionY = (newPositionY, id) => {
     },
   };
 };
+export const changeView = (newView) => {
+  return {
+    type: "CHANGE_VIEW",
+    payload: {
+      inventory: newView.inventory,
+      characterScreen: newView.characterScreen,
+      playArea: newView.playArea
+    }
+  }
+}
 
 export const createPlayer = (player) => {
   const { name, health, damage, positionX, positionY } = player;

@@ -120,6 +120,13 @@ const enemiesReducer = (mobs = [], action) => {
   return mobs;
 };
 
+const screenReducer = (states = [], action) => {
+  if(action.type === "CHANGE_VIEW") {
+    return action.payload
+  }
+  else return states
+}
+
 export default combineReducers({
   inventoryReducer,
   playerReducer,
@@ -128,4 +135,5 @@ export default combineReducers({
   equipmentReducer,
   playareaReducer,
   enemiesReducer,
+  screenReducer
 });

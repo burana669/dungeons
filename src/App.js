@@ -1,10 +1,9 @@
 import React from "react";
-import CharacterScreen from "./components/CharacterScreen";
-import InventoryScreen from "./components/InventoryScreen";
+
 
 import "./App.css";
 
-import PlayArea from "./components/PlayArea";
+import Screen from "./components/Screen"
 import Creator from "./components/Creator";
 import HandleKeyPress from "./components/HandleKeyPress";
 
@@ -12,12 +11,11 @@ function App() {
   return (
     <div className="App">
       <HandleKeyPress />
-      <CharacterScreen />
+     
 
       <Creator></Creator>
-      <PlayArea></PlayArea>
-
-      <InventoryScreen />
+      <Screen></Screen>
+      
     </div>
   );
 }

@@ -1,6 +1,6 @@
 import React from 'react'
 import {connect} from "react-redux"
-import {createMob, createPlayer} from "../actions"
+import {createMob, createPlayer, changeView} from "../actions"
 
 const Creator = (props) => {
 
@@ -28,13 +28,21 @@ const player = {
     positionY: 3
 }
 
+const newView = {
+    inventory: true,
+    playArea: true,
+    characterScreen: true
+
+}
+
 props.createMob(newmob)
 props.createMob(newmob2)
 props.createPlayer(player)
+props.changeView(newView)
 
 return null
 
 
 }
 
-export default connect(null, {createMob, createPlayer})(Creator)
+export default connect(null, {createMob, createPlayer, changeView})(Creator)
