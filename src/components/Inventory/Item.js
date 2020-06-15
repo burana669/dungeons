@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import ItemDetails from "./ItemDetails";
 import { v4 as uuidv4 } from "uuid";
-import { startDrag, drag, drop } from "../actions";
+import { startDrag, drag, drop } from "../../actions";
 
 var timeOut;
 
@@ -47,8 +47,8 @@ const Item = (props) => {
     const thisDiv = document.getElementById(`${id}`);
     const coords = thisDiv.getBoundingClientRect();
 
-    setXAxis(e.clientX - coords.x + 20);
-    setYAxis(e.clientY - coords.y + 30);
+    setXAxis(e.pageX - coords.x + 10);
+    setYAxis(e.pageY - coords.y + 10);
   };
 
   const mouseLeave = (e) => {
