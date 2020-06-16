@@ -1,6 +1,8 @@
 import React from "react"
 import {connect} from "react-redux"
 
+import {changeView} from "../actions"
+
 
 const Playarea = (props) => {
 
@@ -42,10 +44,22 @@ const Playarea = (props) => {
         
 
     )
-
+    const handleClick = () => {
+        
+        const newView = {
+            inventory: true,
+            playArea: false,
+            
+        
+        }
+        props.changeView(newView)
+    }
     
     return (
+    <div>   
     <div className="playarea-container">{areaPositions}</div>
+    <button  onClick={handleClick}>Inventory</button>
+    </div>
     )
 
 }
@@ -56,7 +70,7 @@ const mapStateToProps = (state) => {
     }
 }
 
-export default connect(mapStateToProps)(Playarea)
+export default connect(mapStateToProps, {changeView})(Playarea)
 
            /*  <div className="playarea-a1">a1</div>
             <div className="playarea-a2">a2</div>

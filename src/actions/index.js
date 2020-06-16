@@ -64,7 +64,6 @@ export const changeView = (newView) => {
     type: "CHANGE_VIEW",
     payload: {
       inventory: newView.inventory,
-      characterScreen: newView.characterScreen,
       playArea: newView.playArea
     }
   }
