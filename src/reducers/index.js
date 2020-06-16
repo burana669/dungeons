@@ -1,8 +1,6 @@
 import { combineReducers } from "redux";
 
-const inventoryReducer = (inventory = [], action) => {
-  return inventory;
-};
+import { inventoryReducer, equipmentReducer } from "./inventory";
 
 const playerReducer = (stats = [], action) => {
   switch (action.type) {
@@ -65,9 +63,7 @@ const dragReducer = (dragItem = [], action) => {
 const statReducer = (stats = [], action) => {
   return stats;
 };
-const equipmentReducer = (equipment = [], action) => {
-  return equipment;
-};
+
 const playareaReducer = (positions = [], action) => {
   switch (action.type) {
     case "CREATE_MOB":
@@ -121,11 +117,10 @@ const enemiesReducer = (mobs = [], action) => {
 };
 
 const screenReducer = (states = [], action) => {
-  if(action.type === "CHANGE_VIEW") {
-    return action.payload
-  }
-  else return states
-}
+  if (action.type === "CHANGE_VIEW") {
+    return action.payload;
+  } else return states;
+};
 
 export default combineReducers({
   inventoryReducer,
@@ -135,5 +130,5 @@ export default combineReducers({
   equipmentReducer,
   playareaReducer,
   enemiesReducer,
-  screenReducer
+  screenReducer,
 });

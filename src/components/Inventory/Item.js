@@ -1,12 +1,11 @@
 import React, { useState } from "react";
 import ItemDetails from "./ItemDetails";
-import { v4 as uuidv4 } from "uuid";
-import { startDrag, drag, drop } from "../../actions";
+import { drop } from "../../actions/inventory";
 
 var timeOut;
 
 const Item = (props) => {
-  const { id, name, gategory, description, draggable, image, stats } = props;
+  const { id, name, description, image, stats } = props.item;
 
   const [xAxis, setXAxis] = useState();
   const [yAxis, setYAxis] = useState();
@@ -38,10 +37,8 @@ const Item = (props) => {
   const mouseEnter = (e) => {
     timeOut = setTimeout(() => {
       setShowDescription("block");
-    }, 500);
+    }, 300);
   };
-
-  const mouseOver = (e) => {};
 
   const mouseMove = (e) => {
     const thisDiv = document.getElementById(`${id}`);
@@ -66,14 +63,12 @@ const Item = (props) => {
       onDragEnd={dragEnd}
       onDragOver={dragOver}
       onMouseEnter={mouseEnter}
-      onMouseOver={mouseOver}
       onMouseMove={mouseMove}
       onMouseLeave={mouseLeave}
-      draggable={draggable}
+      draggable={true}
     >
       {name}
       <ItemDetails
-        id={id}
         description={description}
         stats={stats}
         shown={showDescription}
