@@ -1,8 +1,7 @@
 import React from "react"
 import {connect} from "react-redux"
 
-import CharacterScreen from "./CharacterScreen";
-import InventoryScreen from "./InventoryScreen";
+import InventoryScreen from "./Inventory/Inventory";
 import PlayArea from "./PlayArea";
 
 const Screen = (props) => {
@@ -14,9 +13,7 @@ const Screen = (props) => {
     }
     if(props.playArea) {
         returnStuff = [...returnStuff,<PlayArea></PlayArea>]}
-    if(props.characterScreen) {
-        returnStuff = [...returnStuff,<CharacterScreen></CharacterScreen>]
-    }
+    
     return returnStuff  
 }
 
@@ -24,7 +21,7 @@ const mapStateToProps = (state) => {
     return {
         inventory: state.screenReducer.inventory,
         playArea: state.screenReducer.playArea,
-        characterScreen: state.screenReducer.characterScreen
+        
         
     }
 

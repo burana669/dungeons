@@ -29,9 +29,9 @@ const player = {
 }
 
 const newView = {
-    inventory: true,
+    inventory: false,
     playArea: true,
-    characterScreen: true
+    
 
 }
 
