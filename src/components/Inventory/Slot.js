@@ -14,12 +14,12 @@ const Slot = ({
     e.preventDefault();
     const DOMcharSlot = document.getElementById(e.target.id);
     const DOMitem = document.getElementById(e.dataTransfer.getData("item"));
-    DOMcharSlot.appendChild(DOMitem);
+    //DOMcharSlot.appendChild(DOMitem);
 
     const charSlotID = e.target.id;
     const itemID = e.dataTransfer.getData("item");
 
-    drop(itemID, charSlotID);
+    props.drop(itemID, charSlotID);
   };
 
   const dragOver = (e) => {

@@ -1,6 +1,6 @@
 import { combineReducers } from "redux";
 
-import { inventoryReducer, equipmentReducer } from "./inventory";
+import { inventoryReducer, equipmentReducer, dragReducer } from "./inventory";
 
 const playerReducer = (stats = [], action) => {
   switch (action.type) {
@@ -39,24 +39,6 @@ const playerReducer = (stats = [], action) => {
       } else return stats;
     default:
       return stats;
-  }
-};
-
-const dragReducer = (dragItem = [], action) => {
-  switch (action.type) {
-    case "START_DRAG_ITEM":
-      console.log("REDUCER: DRAGGING STARTS");
-      return [action.payload];
-
-    case "DRAG_ITEM":
-      console.log("REDUCER: DRAGGING CONTINUES");
-      return [action.payload];
-
-    case "DROP_DRAG_ITEM":
-      console.log("REDUCER: DROPPING ITEM");
-      return dragItem;
-    default:
-      return dragItem;
   }
 };
 

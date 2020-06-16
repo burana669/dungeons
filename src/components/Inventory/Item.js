@@ -1,6 +1,7 @@
 import React, { useState } from "react";
+import { connect } from "react-redux";
 import ItemDetails from "./ItemDetails";
-import { drop } from "../../actions/inventory";
+import { startDrag } from "../../actions/inventory";
 
 var timeOut;
 
@@ -11,7 +12,8 @@ const Item = (props) => {
   const [yAxis, setYAxis] = useState();
   const [showDescription, setShowDescription] = useState("none");
 
-  const dragStart = (e) => {
+  const handleDragStart = (e) => {
+    props.startDrag(e.target.id);
     const target = e.target;
     e.stopPropagation();
 
@@ -20,10 +22,6 @@ const Item = (props) => {
     setTimeout(() => {
       target.style.display = "none";
     }, 0);
-  };
-
-  const drag = (e) => {
-    e.stopPropagation();
   };
 
   const dragEnd = (e) => {
@@ -57,9 +55,7 @@ const Item = (props) => {
     <div
       className={`inventory-item ${image}`}
       id={id}
-      onDragStart={dragStart}
-      onDrop={drop}
-      onDrag={drag}
+      onDragStart={handleDragStart}
       onDragEnd={dragEnd}
       onDragOver={dragOver}
       onMouseEnter={mouseEnter}
@@ -78,4 +74,4 @@ const Item = (props) => {
   );
 };
 
-export default Item;
+export default connect(null, { startDrag })(Item);

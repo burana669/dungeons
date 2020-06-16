@@ -1,8 +1,8 @@
-export const startDrag = (event) => {
+export const startDrag = (id) => {
   console.log("ACTION: Start dragging");
   return {
     type: "START_DRAG_ITEM",
-    paylod: event,
+    payload: id,
   };
 };
 
@@ -10,7 +10,7 @@ export const drag = (event) => {
   console.log("ACTION: Continue dragging");
   return {
     type: "DRAG_ITEM",
-    paylod: event,
+    payload: event,
   };
 };
 
@@ -18,8 +18,7 @@ export const drop = (item, slot) => {
   console.log("ACTION: Drop item");
   return {
     type: "DROP_DRAG_ITEM",
-    paylod: item,
-    slot,
+    payload: { item, slot },
   };
 };
 
@@ -28,6 +27,13 @@ export const spawnItem = (item) => {
   return {
     type: "SPAWN_ITEM",
     payload: { id, name, category, description, image, stats },
+  };
+};
+
+export const moveItem = (item) => {
+  return {
+    type: "MOVE_ITEM",
+    payload: item,
   };
 };
 
