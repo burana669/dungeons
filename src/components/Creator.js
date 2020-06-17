@@ -6,6 +6,17 @@ import { spawnItem } from "../actions/inventory";
 const Creator = (props) => {
   const mockUpData = [
     {
+      id: "0",
+      name: "Armored boot",
+      category: "right-leg",
+      description: "This is a fine right leg boot",
+      stats: {
+        hp: 1,
+        attack: 0,
+        defense: 2,
+      },
+    },
+    {
       id: "1",
       name: "Helmet",
       category: "head",
@@ -62,17 +73,6 @@ const Creator = (props) => {
         defense: 3,
       },
     },
-    {
-      id: "6",
-      name: "Armored boot",
-      category: "right-leg",
-      description: "This is a fine right leg boot",
-      stats: {
-        hp: 1,
-        attack: 0,
-        defense: 2,
-      },
-    },
   ];
 
   mockUpData.map((item) => {
@@ -104,8 +104,8 @@ const Creator = (props) => {
   };
 
   const newView = {
-    inventory: false,
-    playArea: true,
+    inventory: true,
+    playArea: false,
   };
 
   props.createMob(newmob);

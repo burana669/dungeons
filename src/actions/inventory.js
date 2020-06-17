@@ -1,21 +1,21 @@
-export const startDrag = (id) => {
-  console.log("ACTION: Start dragging");
+export const startDrag = (item) => {
+  // console.log("ACTION: Start dragging");
   return {
     type: "START_DRAG_ITEM",
-    payload: id,
+    payload: item,
   };
 };
 
-export const drag = (event) => {
+export const drag = (item) => {
   console.log("ACTION: Continue dragging");
   return {
     type: "DRAG_ITEM",
-    payload: event,
+    payload: item,
   };
 };
 
 export const drop = (item, slot) => {
-  console.log("ACTION: Drop item");
+  console.log(`ACTION: Drop item. ITEM ID: ${item} SLOT ID: ${slot}`);
   return {
     type: "DROP_DRAG_ITEM",
     payload: { item, slot },

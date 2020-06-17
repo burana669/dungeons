@@ -10,7 +10,12 @@ const InventoryScreen = (props) => {
     </Slot>
   ));
 
-  return <ul className="stash-container">{renderInventoryItems}</ul>;
+  return (
+    <ul className="stash-container">
+      {renderInventoryItems}
+      <Slot />
+    </ul>
+  );
 };
 
 const mapStateToProps = (state) => {

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
 import ItemDetails from "./ItemDetails";
-import { startDrag } from "../../actions/inventory";
+import { startDrag, drag } from "../../actions/inventory";
 
 var timeOut;
 
@@ -13,11 +13,12 @@ const Item = (props) => {
   const [showDescription, setShowDescription] = useState("none");
 
   const handleDragStart = (e) => {
-    props.startDrag(e.target.id);
+    // console.log(props.item);
+    props.startDrag(props.item);
     const target = e.target;
     e.stopPropagation();
 
-    e.dataTransfer.setData("item", target.id);
+    e.dataTransfer.setData("item", props.item);
     setShowDescription("none");
     setTimeout(() => {
       target.style.display = "none";
@@ -58,18 +59,18 @@ const Item = (props) => {
       onDragStart={handleDragStart}
       onDragEnd={dragEnd}
       onDragOver={dragOver}
-      onMouseEnter={mouseEnter}
-      onMouseMove={mouseMove}
+      //onMouseEnter={mouseEnter}
+      //onMouseMove={mouseMove}
       onMouseLeave={mouseLeave}
       draggable={true}
     >
       {name}
-      <ItemDetails
+      {/* <ItemDetails
         description={description}
         stats={stats}
         shown={showDescription}
         coordinates={{ xAxis, yAxis }}
-      />
+      /> */}
     </div>
   );
 };

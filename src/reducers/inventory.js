@@ -4,22 +4,22 @@ export const inventoryReducer = (inventory = [], action) => {
   switch (action.type) {
     case "SPAWN_ITEM":
       return [...inventory, action.payload];
+
     case "START_DRAG_ITEM":
+      console.log(`REDUCER - START DRAG ITEM:`);
       console.log(action.payload);
-      const filteredList = inventory.filter(
-        (item) => item.id !== action.payload
-      );
+      return inventory;
 
-      const itemToMove = inventory.filter((item) => item.id === action.payload);
+    case "DRAG_ITEM":
+      console.log(`REDUCER - KEEP DRAGGING ITEM:`);
+      console.log(action.payload);
+      return inventory;
 
-      moveItem(itemToMove);
+    case "DROP_DRAG_ITEM":
+      console.log(`INVENTORY REDUCER - DROP ITEM:`);
+      console.log(action.payload.item);
 
-      return [...filteredList];
-    case "MOVE_ITEM":
-      console.log("asdffsdafsd");
-      return;
-    case "DROP_ITEM":
-      return [...inventory, action.payload];
+      return [...inventory, action.payload.item];
     default:
       return inventory;
   }
@@ -31,30 +31,22 @@ export const equipmentReducer = (
     leftArm: null,
     chest: null,
     rightArm: null,
-    leftLeg: {
-      id: "100",
-      name: "Helmet",
-      category: "head",
-      description: "This is a fine helmet FROM REDUX",
-      image: "helmet",
-      stats: {
-        hp: 10,
-        attack: 0,
-        defense: 5,
-      },
-    },
+    leftLeg: null,
     rightLeg: null,
   },
   action
 ) => {
+  switch (action.type) {
+  }
   return equipment;
 };
 
 export const dragReducer = (dragItem = {}, action) => {
   switch (action.type) {
     case "START_DRAG_ITEM":
+      console.log("REDUCER - DRAGGING STARTS ON ITEM");
       console.log(action.payload);
-      console.log("REDUCER: DRAGGING STARTS");
+
       return action.payload;
 
     case "DRAG_ITEM":
@@ -63,7 +55,7 @@ export const dragReducer = (dragItem = {}, action) => {
 
     case "DROP_DRAG_ITEM":
       console.log("REDUCER: DROPPING ITEM");
-      return dragItem;
+      return {};
     default:
       return dragItem;
   }

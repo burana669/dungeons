@@ -3,23 +3,17 @@ import { connect } from "react-redux";
 import { drop } from "../../actions/inventory";
 import { v4 as uuidv4 } from "uuid";
 
-const Slot = ({
-  id = uuidv4(),
-  className = null,
-  children = null,
-  name,
-  props,
-}) => {
+const Slot = (props) => {
   const handleDrop = (e) => {
     e.preventDefault();
-    const DOMcharSlot = document.getElementById(e.target.id);
-    const DOMitem = document.getElementById(e.dataTransfer.getData("item"));
-    //DOMcharSlot.appendChild(DOMitem);
+    // const DOMcharSlot = document.getElementById(e.target.id);
+    // const DOMitem = document.getElementById(e.dataTransfer.getData("item"));
+    // DOMcharSlot.appendChild(DOMitem);
 
     const charSlotID = e.target.id;
-    const itemID = e.dataTransfer.getData("item");
+    const item = e.dataTransfer.getData("item");
 
-    props.drop(itemID, charSlotID);
+    props.drop(item, charSlotID);
   };
 
   const dragOver = (e) => {
@@ -28,14 +22,20 @@ const Slot = ({
 
   return (
     <div
-      id={id}
-      className={`slot ${className}`}
+      id={props.id}
+      className={`slot ${props.className}`}
       onDrop={handleDrop}
       onDragOver={dragOver}
     >
-      {children}
+      {props.children}
     </div>
   );
+};
+
+Slot.defaultProps = {
+  id: uuidv4(),
+  className: null,
+  children: null,
 };
 
 export default connect(null, { drop })(Slot);
