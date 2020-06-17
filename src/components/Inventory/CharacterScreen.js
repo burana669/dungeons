@@ -3,10 +3,27 @@ import { connect } from "react-redux";
 import Slot from "./Slot";
 import Item from "./Item";
 
-const CharacterScreen = (props) => {
-  const { head, leftArm, rightArm, chest, leftLeg, rightLeg } = props.equipment;
 
-  console.log(head);
+
+
+const CharacterScreen = (props) => {
+
+  const mapCategory = (category) => {
+    let returnItem = {}
+    console.log(props)
+    props.equipment.map(element => { if (element.category === category){
+      returnItem = element
+    }})
+    return returnItem
+  }
+  
+
+  const head = mapCategory("head")
+  const leftArm = mapCategory("leftArm")
+  const rightArm = mapCategory("rightArm")
+  const chest = mapCategory("chest")
+  const leftLeg = mapCategory("leftLeg")
+  const rightLeg = mapCategory("rightLeg")
 
   return (
     <div className="character-screen">

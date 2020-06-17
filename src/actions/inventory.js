@@ -14,11 +14,11 @@ export const drag = (item) => {
   };
 };
 
-export const drop = (item, slot) => {
-  console.log(`ACTION: Drop item. ITEM ID: ${item} SLOT ID: ${slot}`);
+export const drop = (item) => {
+  console.log(`ACTION: Drop item. ITEM ID: ${item} SLOT ID:`);
   return {
     type: "DROP_DRAG_ITEM",
-    payload: { item, slot },
+    payload: item,
   };
 };
 
@@ -26,7 +26,7 @@ export const spawnItem = (item) => {
   const { id, name, category, description, image, stats } = item;
   return {
     type: "SPAWN_ITEM",
-    payload: { id, name, category, description, image, stats },
+    payload: { id, name, category, description, image, stats},
   };
 };
 
@@ -38,14 +38,10 @@ export const moveItem = (item) => {
 };
 
 export const equipItem = (item) => {
-  const { name, bonus, type, id } = item;
+ 
   return {
     type: "EQUIP_ITEM",
-    payload: {
-      id,
-      name,
-      bonus,
-      type,
-    },
+    payload: item
+    
   };
 };

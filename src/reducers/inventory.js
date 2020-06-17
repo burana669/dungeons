@@ -25,21 +25,23 @@ export const inventoryReducer = (inventory = [], action) => {
   }
 };
 
-export const equipmentReducer = (
-  equipment = {
-    head: null,
-    leftArm: null,
-    chest: null,
-    rightArm: null,
-    leftLeg: null,
-    rightLeg: null,
-  },
-  action
-) => {
+export const equipmentReducer = (equipment = [], action) => {
   switch (action.type) {
-  }
+    case "EQUIP_ITEM":
+    if(!equipment.map(element =>  {
+      if (element.category.includes(action.payload.category)){
+        return true
+      } 
+
+    })) {
+    return [...equipment, action.payload]
+    }
+   else return equipment
+   
+  default:
   return equipment;
 };
+}
 
 export const dragReducer = (dragItem = {}, action) => {
   switch (action.type) {
